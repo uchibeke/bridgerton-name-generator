@@ -2,7 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="minimum-scale=1, width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#000000" />
     <link rel="shortcut icon" href="/Bridgerton-Name-Generator-icon.webp" />
     <title>Bridgerton Name Generator</title>
     <meta
@@ -37,8 +42,8 @@
     <style>
       body {
         font-family: "Arial", sans-serif;
-        background-color: #f8f9fa;
-        color: #212529;
+        background-color: #121212;
+        color: #ffffff;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -47,47 +52,50 @@
         margin: 0;
       }
       .container {
-        background-color: #ffffff;
+        background-color: #1e1e1e;
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         max-width: 470px;
         width: 100%;
         text-align: center;
       }
       h1 {
-        color: #6c757d;
+        color: #bb86fc;
       }
       input,
       select,
       button {
-        width: 100%;
         padding: 10px;
         margin: 10px 0;
-        margin-top: 5px;
-        margin-bottom: 20px;
-        border: 1px solid #ced4da;
+        border: 1px solid #333333;
         border-radius: 5px;
         font-size: 16px;
-        max-width: 450px;
+        background-color: #2a2a2a;
+        color: #ffffff;
+        width: 450px;
+        max-width: 85vw;
       }
       select {
-        max-width: 470px;
+        width: 470px;
+        max-width: 92vw;
       }
       button {
-        background-color: #007bff;
-        color: #ffffff;
+        background-color: #bb86fc;
+        color: #fff;
         cursor: pointer;
       }
       button:hover {
-        background-color: #0056b3;
+        background-color: #9b67d6;
       }
       .result {
+        margin: "auto";
         margin-top: 20px;
         font-size: 18px;
-        color: #495057;
-        padding: 50px;
-        border: 1px solid #000000;
+        color: #ffffff;
+        padding: 50px 20px 50px 20px;
+        border-top: 1px solid #aaaaaa;
+        border-bottom: 1px solid #aaaaaa;
         font-size: 1.2em;
         font-weight: bold;
         text-transform: capitalize;
@@ -104,26 +112,21 @@
         color: #ffffff;
         border-radius: 5px;
       }
-
-      .share-twitter {
-        background-color: #1da1f2;
-      }
-      .share-linkedin {
-        background-color: #0077b5;
-      }
       .footer,
       .footer a {
         font-size: 0.8em;
         color: #aaaaaa;
       }
       .title {
-        line-height: 0px;
+        line-height: 2.1px;
+        word-break: normal;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1 class="title">Bridgerton Name Generator</h1>
+      <h1 class="title">Bridgerton</h1>
+      <h1 class="title">Name Generator</h1>
       <h4>Generate your unique Bridgerton Name below</h4>
       <label for="title">Title:</label>
       <select id="title">
