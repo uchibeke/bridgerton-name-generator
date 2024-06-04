@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/Bridgerton-Name-Generator-icon.webp" />
+    <title>Bridgerton Name Generator</title>
+    <meta
+      name="description"
+      content="Generate your own Bridgerton-inspired name with our fun and easy-to-use Bridgerton Name Generator."
+    />
+    <meta
+      name="keywords"
+      content="Bridgerton, Name Generator, Fun, Entertainment, Bridgerton Name Generator"
+    />
+    <meta name="author" content="Uchi Uchibeke" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Bridgerton Name Generator" />
+    <meta
+      property="og:description"
+      content="Generate your own Bridgerton-inspired name with our fun and easy-to-use Bridgerton Name Generator."
+    />
+    <meta property="og:image" content="/Bridgerton-Name-Generator.webp" />
+    <meta property="og:url" content="https://uchibeke.com" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bridgerton Name Generator" />
+    <meta
+      name="twitter:description"
+      content="Generate your own Bridgerton-inspired name with our fun and easy-to-use Bridgerton Name Generator."
+    />
+    <meta name="twitter:image" content="/Bridgerton-Name-Generator.webp" />
+
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f8f9fa;
+        color: #212529;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 470px;
+        width: 100%;
+        text-align: center;
+      }
+      h1 {
+        color: #6c757d;
+      }
+      input,
+      select,
+      button {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        font-size: 16px;
+        max-width: 450px;
+      }
+      select {
+        max-width: 470px;
+      }
+      button {
+        background-color: #007bff;
+        color: #ffffff;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      .result {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #495057;
+        padding: 50px;
+        border: 1px solid #000000;
+        font-size: 1.2em;
+        font-weight: bold;
+        text-transform: capitalize;
+      }
+      .share-container {
+        margin-top: 20px;
+      }
+      .share-button {
+        margin: 5px;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        color: #ffffff;
+        border-radius: 5px;
+      }
+
+      .share-twitter {
+        background-color: #1da1f2;
+      }
+      .share-linkedin {
+        background-color: #0077b5;
+      }
+      .footer,
+      .footer a {
+        font-size: 0.8em;
+        color: #aaaaaa;
+      }
+      .title {
+        line-height: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Bridgerton Name Generator</h1>
+      <h4>Generate your unique Bridgerton Name below</h4>
+      <label for="title">Title:</label>
+      <select id="title">
+        <option value="Lord">Lord</option>
+        <option value="Lady">Lady</option>
+      </select>
+      <label for="middleName">Your Middle Name:</label>
+      <input type="text" id="middleName" placeholder="Enter your middle name" />
+      <label for="drink">Name of last Drink you had:</label>
+      <input
+        type="text"
+        id="drink"
+        placeholder="Enter the last name of the drink"
+      />
+      <label for="streetName">Street Name:</label>
+      <input type="text" id="streetName" placeholder="Enter your street name" />
+      <button onclick="generateName()">Generate Name</button>
+      <p id="prompt" style="display: none">Your Bridgerton Name is</p>
+      <div class="result" id="result"></div>
+      <div class="share-container" id="shareContainer" style="display: none">
+        <button class="share-button share-twitter" onclick="shareOnTwitter()">
+          Share on X (Twitter)
+        </button>
+        <!-- <button class="share-button share-linkedin" onclick="shareOnLinkedIn()">
+          Share on LinkedIn
+        </button> -->
+      </div>
+    </div>
+    <div class="footer">
+      <p>
+        Made by
+        <a href="https://github.com/uchibeke/" target="_blank" rel="noopener">
+          Uchi Uchibeke </a
+        >. Inspired by
+        <a
+          href="https://www.instagram.com/reel/C7blCFxI5ID/?igsh=MXBtNXk1Mnppenh0Yg=="
+          target="_blank"
+          rel="noopener"
+        >
+          instagram.com/reel/C7blCFxI5ID
+        </a>
+      </p>
+    </div>
+    <script>
+      function getFirstSyllable(word) {
+        const match = word.match(/[aeiouy]+[^aeiouy]*/i);
+        return word.split(" ")[0];
+      }
+
+      function generateName() {
+        const title = document.getElementById("title").value;
+        const middleName = document.getElementById("middleName").value;
+        const drink = document.getElementById("drink").value;
+        const streetName = document.getElementById("streetName").value;
+
+        if (middleName && drink && streetName) {
+          const drinkWithTon = drink + "ton";
+          const streetFirstPart = getFirstSyllable(streetName) + "shire";
+
+          const fullName = `${title} ${middleName} ${drinkWithTon} Of ${streetFirstPart}`;
+          document.getElementById("result").innerText = fullName;
+
+          // Show share buttons
+          document.getElementById("shareContainer").style.display = "block";
+          document.getElementById("prompt").style.display = "block";
+        } else {
+          document.getElementById("result").innerText =
+            "Please fill in all fields.";
+          document.getElementById("shareContainer").style.display = "none";
+        }
+      }
+
+      function shareOnTwitter() {
+        const result = document.getElementById("result").innerText;
+        const shareText = `My Bridgerton Name is ${result}. Generate yours at `;
+        const url = window.location.href;
+        const shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${encodeURIComponent(
+          shareText
+        )}`;
+        window.open(shareUrl, "_blank");
+      }
+
+      function shareOnLinkedIn() {
+        const result = document.getElementById("result").innerText;
+        const url = window.location.href;
+        const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}&summary=${encodeURIComponent(
+          shareText
+        )}`;
+        window.open(shareUrl, "_blank");
+      }
+    </script>
+  </body>
+</html>
